@@ -1,5 +1,5 @@
-﻿using ETradeAPI.Application.Abstractions;
-using ETradeAPI.Persistence.Concretes;
+﻿using Microsoft.EntityFrameworkCore;
+using ETradeAPI.Persistence.Contexts;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace ETradeAPI.Persistence
     {
         public static void AddPresistenceServices(this IServiceCollection services)
         {
-            services.AddSingleton<IProductService, ProductService>();
+            services.AddDbContext<ETradeAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionString));
         }
     }
 }

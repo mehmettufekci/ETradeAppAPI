@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Domain.Entities
 {
-    public class Product : BaseEntity
+    public class Customer:BaseEntity
     {
-        public string Name { get; set; }
-        public int Stock { get; set; }
-        public long Price { get; set; }
-
-        // Bir product ın birden fazla order ı olduğunu ifade ediyor
+        public string Name  { get; set; }
+        // Bir customer ın birden fazla order ı olabilir
         public ICollection<Order> Orders { get; set; }
     }
 }
